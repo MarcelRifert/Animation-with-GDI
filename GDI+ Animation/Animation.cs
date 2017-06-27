@@ -25,8 +25,8 @@ namespace GDI__Animation
         {
             InitializeComponent();
             tAnimation.Start();
-            centerPoint = new Point(this.ClientRectangle.Width / 2 - 20, this.ClientRectangle.Height / 2 + 30);
-            centerRec = new Rectangle(centerPoint.X, centerPoint.Y, 5, 5);
+            centerPoint = new Point(this.ClientRectangle.Width / 2, this.ClientRectangle.Height / 2 + 30);
+            centerRec = new Rectangle(centerPoint.X - 3, centerPoint.Y - 3, 6, 6);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -45,8 +45,8 @@ namespace GDI__Animation
             if (angle == 361)
                 angle = 0;
 
-            X = centerPoint.X + (int)Math.Floor(Math.Cos(angle) * radius);
-            Y = centerPoint.Y + (int)Math.Floor(Math.Sin(angle) * radius);
+            X = (centerPoint.X + (int)Math.Floor(Math.Cos(angle) * radius))-length/2;
+            Y = (centerPoint.Y + (int)Math.Floor(Math.Sin(angle) * radius))-length/2;
             this.Invalidate();
         }
 
